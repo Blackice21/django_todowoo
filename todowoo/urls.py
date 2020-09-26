@@ -18,10 +18,19 @@ from django.urls import path
 from todo import views
 
 urlpatterns = [
+    # home page and admin page
     path('', views.home, name='home'),
     path('admin/', admin.site.urls),
-    path('signup/', views.signupuser, name="signup"),
+    # user authentication paths
+    path('signup/', views.signupuser, name="signupuser"),
+    path('currenttodos/logout/', views.logout_view, name='logoutuser'),
+    path('login/', views.login_view, name='loginuser'),
+    # todo related paths
     path('currenttodos/', views.currenttodos, name="currenttodos"),
-    path('currenttodos/logout/', views.logout_view, name='logout'),
-    path('login/', views.login_view, name='login'),
+    path('completedtodos/', views.completedtodos, name="completedtodos"),
+    path('create/', views.create, name='createtodo'),
+    # details on each todo object
+    path('todo/<int:todo_key>', views.viewtodo, name='viewtodo'),
+    path('todo/<int:todo_key>/completed', views.completed, name='completed'),
+    path('todo/<int:todo_key>/delete', views.deletetodo, name='deletetodo'),
 ]
