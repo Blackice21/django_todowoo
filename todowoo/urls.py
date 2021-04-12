@@ -16,7 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from todo import views
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     # home page and admin page
     path('', views.home, name='home'),
@@ -34,3 +35,6 @@ urlpatterns = [
     path('todo/<int:todo_key>/completed', views.completed, name='completed'),
     path('todo/<int:todo_key>/delete', views.deletetodo, name='deletetodo'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
