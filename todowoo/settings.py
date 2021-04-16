@@ -25,7 +25,7 @@ SECRET_KEY = '1_7sepu$gn2&shdi^q@*4eb13zx+k3+fg384y_=fch6-4+hxfw'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['104.236.198.183']
 
 
 # Application definition
@@ -80,6 +80,7 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
